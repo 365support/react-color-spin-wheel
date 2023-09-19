@@ -1,8 +1,21 @@
 {
-  "name": "color-wheel",
-  "private": true,
-  "version": "0.0.0",
+  "name": "react-color-spin-wheel",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
+  "description": "react library for color spin wheel",
+  "main": "dist/index.umd.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -18,6 +31,7 @@
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.9",
+    "@types/node": "^20.6.2",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -26,7 +40,9 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "path": "^0.12.7",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.5.3"
   }
 }

@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { SpinWheel } from "./lib";
