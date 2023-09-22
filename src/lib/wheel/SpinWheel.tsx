@@ -20,12 +20,18 @@ const WheelContainer = styled.div<{ rotation: number }>`
   transform: ${({ rotation }) => `rotate(${rotation}deg)`};
 `;
 
+const WheelContainerStyle = styled.div<{ size?: number }>`
+  width: ${({ size }) => `${size}px`};
+  height: ${({ size }) => `${size}px`};
+`;
+
 interface SpinWheelProps {
   colors: string[];
   onColorSelect: (color: string) => void;
   lineWeight?: number;
   initialRotationDegree?: number;
   extractionDegrees?: number;
+  size: number;
 }
 
 type ReactEvent =
@@ -41,6 +47,7 @@ export default function SpinWheel({
   lineWeight = 2,
   initialRotationDegree = 0,
   extractionDegrees = 0,
+  size = 300,
 }: SpinWheelProps) {
   const degreesPerColor = DEGREE_IN_CIRCLE / colors.length;
   const rotateRef = useRef<HTMLDivElement>(null);
@@ -113,18 +120,20 @@ export default function SpinWheel({
   };
 
   return (
-    <SpinCircle
-      ref={rotateRef}
-      onMouseDown={handleRotateStart}
-      onMouseMove={handleRotateMove}
-      onMouseUp={handleRotateStop}
-      onTouchStart={handleRotateStart}
-      onTouchMove={handleRotateMove}
-      onTouchEnd={handleRotateStop}
-    >
-      <WheelContainer rotation={rotation}>
-        <Wheel lineWeight={lineWeight} colors={colors} />
-      </WheelContainer>
-    </SpinCircle>
+    <WheelContainerStyle size={size}>
+      <SpinCircle
+        ref={rotateRef}
+        onMouseDown={handleRotateStart}
+        onMouseMove={handleRotateMove}
+        onMouseUp={handleRotateStop}
+        onTouchStart={handleRotateStart}
+        onTouchMove={handleRotateMove}
+        onTouchEnd={handleRotateStop}
+      >
+        <WheelContainer rotation={rotation}>
+          <Wheel lineWeight={lineWeight} colors={colors} />
+        </WheelContainer>
+      </SpinCircle>
+    </WheelContainerStyle>
   );
 }
