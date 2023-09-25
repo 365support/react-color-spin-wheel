@@ -1,27 +1,38 @@
-# React + TypeScript + Vite
+## React-color-spin-wheel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+![Sep-25-2023 13-42-09](https://github.com/365support/react-color-spin-wheel/assets/86206374/ae5a593f-0973-4df6-9d94-8f0b989859b0)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```
+$ npm install --save react-color-spin-wheel
+$ yarn add react-color-spin-wheel
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## The gist
+
+```jsx
+function Wheel() {
+  const wheelColors = ["MistyRose", "Wheat", "lightblue", "Khaki", "Lavender"];
+
+  const [selectedColor, setSelectedColor] = useState("");
+
+  return (
+    <SpinWheel
+      colors={wheelColors}
+      lineWeight={4}
+      onColorSelect={(color) => {
+        setSelectedColor(color);
+      }}
+      initialRotationDegree={0}
+      extractionDegrees={0}
+      size={300}
+    />
+  );
+}
+```
+
+## Documentation
+
+Check the [documentation](https://react-color-spin-wheel.netlify.app/) to get you started!
