@@ -36,3 +36,7 @@ function Wheel() {
 ## Documentation
 
 Check the [documentation](https://react-color-spin-wheel.netlify.app/) to get you started!
+
+## License
+
+Licensed under MIT
