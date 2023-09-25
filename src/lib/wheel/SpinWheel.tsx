@@ -122,10 +122,11 @@ export default function SpinWheel({
   return (
     <WheelContainerStyle size={size}>
       <SpinCircle
-        ref={rotateRef}
+        ref={rotateRef!}
         onMouseDown={handleRotateStart}
         onMouseMove={handleRotateMove}
         onMouseUp={handleRotateStop}
+        onMouseLeave={handleRotateStop}
         onTouchStart={handleRotateStart}
         onTouchMove={handleRotateMove}
         onTouchEnd={handleRotateStop}
